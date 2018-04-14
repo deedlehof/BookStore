@@ -14,7 +14,7 @@
             </ul>
             <div class="nav-login">
                 <form>
-                    <input type="text" name="uid" placeholder="Username/Email">
+                    <input type="text" name="uid" placeholder="Email">
                     <input type="password" name="pwd" placeholder="Password">
                     <button type="submit" name="submit">Login</button>
                 </form>
