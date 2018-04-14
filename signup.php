@@ -13,7 +13,14 @@ include_once 'header.php';
                 <input type="password" name="password" placeholder="Password*">
                 <input type="password" name="password2" placeholder="Confirm Password*">
                 <input type="text" name="age" placeholder="Age*">
-                <button type="submit" name="submit">Sign Up</button>
+                <div class="signup-radio">
+                    <p>Gender:</p>
+                    <input type="radio" id="gender1" name="gender" value="M">
+                    <label for="gender1">Male</label>
+                    <input type="radio" id="gender2" name="gender" value="F">
+                    <label for="gender2">Female</label>
+                    <button type="submit" name="submit">Sign Up</button>
+                </div>
             </form>
         </div>
     </section>
