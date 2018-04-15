@@ -18,28 +18,7 @@
             </form>
             <ul>
                 <?php
-                if (isset($_POST['submit'])) {
-
-                    include_once 'includes/dbh-inc.php';
-
-                    //get data
-                    $option = mysqli_real_escape_string($connection, $_POST['search-option']);
-                    $searchWord = mysqli_real_escape_string($connection, $_POST['search']);
-
-                    $querry = "SELECT * FROM books WHERE name LIKE '%$searchWord%'";
-                    $result = mysqli_query($connection, $querry);
-                    $resultCheck = mysqli_num_rows($result);
-
-                    if($resultCheck > 0){
-                        while ($rows = mysqli_fetch_assoc($result)){
-                            $name = $rows['name'];
-                            echo '<li><p>' . $name . '</p></li>';
-                            //echo $name;
-                        }
-                    } else {
-
-                    }
-                }
+                    include_once 'includes/bookSearch-inc.php';
                 ?>
             </ul>
         </div>

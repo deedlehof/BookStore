@@ -103,6 +103,8 @@ input, select {
 
 /* MY STYLING */
 
+/*header.php*/
+
 .main-wrapper {
     margin: 0 auto;
     width: 1000px;
@@ -259,12 +261,15 @@ header .nav-login a{
     font-family: Arial;
     font-size: 16px;
     color: #111;
-    line-height: 40px; /* needs to be the same as height */
+    line-height: 40px;
 }
 
 .signup-radio label{
     font-family: Arial;
     font-size: 16px;
     color: #111;
-    line-height: 40px; /* needs to be the same as height */
+    line-height: 40px;
 }
+
+/* index.php */
+
