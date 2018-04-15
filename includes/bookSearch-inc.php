@@ -1,10 +1,27 @@
 <?php
 /**
  * Queries the database based off search word and option
- * May move search html to this file too
+ * Drop this template wherever you need to search in the books db
+ *
 */
 
 include_once 'includes/dbh-inc.php';
+
+echo '      <form class="search-form" method="post">
+                <select name="search-option">
+                    <option value="title">Title</option>
+                    <option value="author">Author</option>
+                    <option value="subject">Subject</option>
+                    <option value="keyword">Keyword</option>
+                    <option value="date">Date Published</option>
+                </select>
+                <input type="search" name="search">
+                <button type="submit" name="submit">Search</button> <br>
+                <label for="pmin">Price:</label>
+                <input type="number"" name="pmin">
+                <label for="pmax">-</label>
+                <input type="number" name="pmax">
+            </form>';
 
 $query = "SELECT * FROM books";
 
@@ -36,20 +53,14 @@ if (isset($_POST['submit'])) {
             break;
 
     }
+
+
+
 }
 
 //get data
 $result = mysqli_query($connection, $query);
 $resultCheck = mysqli_num_rows($result);
 
-//echo results as list elements
-if($resultCheck > 0){
-    while ($rows = mysqli_fetch_assoc($result)){
-        echo '<li>    
-                  <h3>' . $rows['name'] . '</h3> 
-                  <p>' . $rows['author'] . '</p>
-                  <p>$' . $rows['price'] . '</p>
-              </li>';
-    }
-}
+
 ?>

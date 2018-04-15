@@ -1,6 +1,8 @@
 <?php
 
-if (isset($_POST['submit'])){
+session_start();
+
+if (isset($_POST['submit']) && !isset($_SESSION['email'])){
 
     include_once 'dbh-inc.php';
 
@@ -72,6 +74,6 @@ if (isset($_POST['submit'])){
     exit();
 
 } else {
-    header("Location: ../signup.php");
+    header("Location: ../index.php");
     exit();
 }
