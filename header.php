@@ -16,11 +16,12 @@ session_start();
             <ul>
                 <li><a href="index.php">Home</a> </li>
                 <?php
+                    //if user is logged in then show extra tabs
                     if(isset($_SESSION['email'])){
                         if(strcmp($_SESSION['type'], "Manager") == 0){
                             echo '<li><a href="index.php">Manage</a> </li>';
                         }
-                        echo '  <li><a href="index.php">User</a> </li>
+                        echo '  <li><a href="userPage.php">User</a> </li>
                                 <li><a href="index.php">Cart</a> </li>';
                     }
                 ?>
