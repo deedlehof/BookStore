@@ -36,6 +36,10 @@ if(isset($_GET['bid'])){
     header("Location: index.php?bid=error");
     exit();
 }
+
+if (isset($_POST['submit']) && isset($_SESSION['email'])){
+
+}
 ?>
 
 <?php
@@ -65,7 +69,7 @@ include_once 'header.php';
 
     <div class="comment-wrapper">
         <h3>Reviews</h3>
-        <form class="review-form">
+        <form class="review-form" action="book.php?bid=<?php echo $id?>" method="post">
             <input type="number" name="rating">
             <label for="rating">/5</label>
             <textarea name="comments" placeholder="Comments"></textarea>
