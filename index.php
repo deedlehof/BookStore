@@ -14,7 +14,7 @@
                 if($resultCheck > 0){
                     while ($rows = mysqli_fetch_assoc($result)){
                         echo
-                            '<li><a href="">    
+                            '<li><a href="book.php?bid=' . $rows['id'] . '">
                               <h3>' . $rows['name'] . '</h3> 
                               <p>' . $rows['author'] . '</p>
                               <p>$' . $rows['price'] . '</p>
