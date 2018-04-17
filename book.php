@@ -1,5 +1,5 @@
 <?php
-
+include_once 'header.php';
 include_once 'includes/dbh-inc.php';
 
 //the bid of the selected book is passed as a variable in the url
@@ -37,13 +37,23 @@ if(isset($_GET['bid'])){
     exit();
 }
 
+//if the user is logged in then add comment
 if (isset($_POST['submit']) && isset($_SESSION['email'])){
 
-}
-?>
+    $subRating = (int)mysqli_real_escape_string($connection, $_POST['rating']);
+    $subComment = mysqli_real_escape_string($connection, $_POST['comments']);
 
-<?php
-include_once 'header.php';
+    //check that rating is within range
+    if(!(0 < $subRating && $subRating <= 5)){
+        header("Location: index.php?rating=error");
+        exit();
+    }
+
+    $insertComment = "INSERT INTO user_reviews (uid, bid, rating, comments)
+                      VALUES ('19', '$id', '$subRating', '$subComment')";
+
+    mysqli_query($connection, $insertComment);
+}
 ?>
 
 <section class="books-container">
@@ -71,9 +81,9 @@ include_once 'header.php';
         <h3>Reviews</h3>
         <form class="review-form" action="book.php?bid=<?php echo $id?>" method="post">
             <input type="number" name="rating">
-            <label for="rating">/5</label>
-            <textarea name="comments" placeholder="Comments"></textarea>
-            <button type="submit" name="review">Submit</button>
+            <label for="rating">/5</label> <br>
+            <textarea name="comments" placeholder="Comments"></textarea> <br>
+            <button type="submit" name="submit">Submit</button>
         </form>
     </div>
     <div class="reviews-wrapper">
@@ -81,11 +91,23 @@ include_once 'header.php';
             <?php
                 if($reviewsCheck > 0){
                     while ($review = mysqli_fetch_assoc($reviewsResult)){
-                        echo
-                        '<li>
-                            <p>' . $review['rating'] . '/5</p>
-                            <p>' . $review['comments'] . '</p>
-                        </li>';
+
+                        //get reviewers name
+                        $reviewerID = $review['uid'];
+                        $userNameQuery = "SELECT fname, lname FROM user WHERE id = '$reviewerID'";
+                        $userNameResult = mysqli_query($connection, $userNameQuery);
+
+                        if(mysqli_num_rows($userNameResult) > 0) {
+
+                            $userName = mysqli_fetch_assoc($userNameResult);
+
+                            echo
+                                '<li>
+                                    <p>' . $userName['fname'] . ' ' . $userName['lname'] .'</p>
+                                    <p>' . $review['rating'] . '/5</p>
+                                    <p>' . $review['comments'] . '</p>
+                                </li>';
+                        }
                     }
                 }
             ?>

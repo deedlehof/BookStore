@@ -1,0 +1,2 @@
+change user password length to 256
+change cost amount to decimal (8,2)

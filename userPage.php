@@ -46,6 +46,8 @@ if(isset($_SESSION['email'])) {
 
     echo '<tr align="center">';
     if($check_order > 0){
+
+        //loop through each order
         while ($order = mysqli_fetch_assoc($run_order)){
 
             //get the book in the order
@@ -64,7 +66,7 @@ if(isset($_SESSION['email'])) {
                 
                     <td>' . $book['name'] . '</td>
                     <td>' . $order['quantity'] . '</td>
-                    <td>' . $order['cost'] . '</td>
+                    <td>$' . $order['cost'] . '</td>
                     <td>' . $order['ordered'] . '</td>
                     <td>' . $order['status'] . '</td>
                 ';
