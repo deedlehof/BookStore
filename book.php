@@ -37,8 +37,11 @@ if(isset($_GET['bid'])){
     exit();
 }
 
+//add comment
 //if the user is logged in then add comment
-if (isset($_POST['submit']) && isset($_SESSION['email'])){
+if (isset($_POST['review']) && isset($_SESSION['email'])){
+
+    echo 'hello world';
 
     $subRating = (int)mysqli_real_escape_string($connection, $_POST['rating']);
     $subComment = mysqli_real_escape_string($connection, $_POST['comments']);
@@ -53,6 +56,26 @@ if (isset($_POST['submit']) && isset($_SESSION['email'])){
                       VALUES ('19', '$id', '$subRating', '$subComment')";
 
     mysqli_query($connection, $insertComment);
+
+    header("Location: book.php?bid=" . $id);
+    exit();
+}
+
+//add to cart
+if (isset($_POST['order']) && isset($_SESSION['email'])){
+    $orderAmt = (int)mysqli_real_escape_string($connection, $_POST['bAmount']);
+
+    //force order amount into bounds
+    if($orderAmt < 1){
+        $orderAmt = 1;
+    } else if ($orderAmt > $book['quantity']){
+        $orderAmt = $book['quantity'];
+    }
+
+    //store the order amount into the books array
+    $book['orderAmt'] = $orderAmt;
+    //store the book that was ordered into session under order tag
+    $_SESSION['order'][] = $book;
 }
 ?>
 
@@ -72,7 +95,10 @@ if (isset($_POST['submit']) && isset($_SESSION['email'])){
                 <p>Average Rating: ' . round($avgRating['avgRating'], 1) . '/5</p>
         '
         ?>
-        <button type="submit" name="order">Add to cart</button>
+        <form class="add-cart-form" action="book.php?bid=<?php echo $id?>" method="post">
+            <input type="number" name="bAmount" value="1">
+            <button type="submit" name="order">Add to Cart</button>
+        </form>
     </div>
 
     <hr>
@@ -83,7 +109,7 @@ if (isset($_POST['submit']) && isset($_SESSION['email'])){
             <input type="number" name="rating">
             <label for="rating">/5</label> <br>
             <textarea name="comments" placeholder="Comments"></textarea> <br>
-            <button type="submit" name="submit">Submit</button>
+            <button type="submit" name="review">Submit</button>
         </form>
     </div>
     <div class="reviews-wrapper">

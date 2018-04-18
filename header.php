@@ -22,7 +22,7 @@ session_start();
                             echo '<li><a href="index.php">Manage</a> </li>';
                         }
                         echo '  <li><a href="userPage.php">User</a> </li>
-                                <li><a href="index.php">Cart</a> </li>';
+                                <li><a href="cart.php">Cart</a> </li>';
                     }
                 ?>
             </ul>
