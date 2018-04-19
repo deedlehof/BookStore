@@ -10,7 +10,7 @@ if(isset($_GET['edit_books'])){
 	$row_book=mysqli_fetch_array($run_book);
 		$book_id = $row_book['id'];
 		$book_title = $row_book['name'];
-		$book_isbn = $row_book['ISBM'];
+		$book_isbn = $row_book['ISBN'];
 		$book_author = $row_book['author'];
 		$book_desc = $row_book['subject'];
 		$book_sum = $row_book['summary'];

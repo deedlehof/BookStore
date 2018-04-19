@@ -1,7 +1,6 @@
 <?php
 
-$connection = mysqli_connect("localhost","root","","book_db");
-
+include_once 'includes/dbh-inc.php';
 
 function getBook(){
 	

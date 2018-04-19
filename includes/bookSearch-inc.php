@@ -18,7 +18,7 @@ echo '      <form class="search-form" method="post">
                 <input type="search" name="search">
                 <button type="submit" name="submit">Search</button> <br>
                 <label for="pmin">Price:</label>
-                <input type="number"" name="pmin">
+                <input type="number" name="pmin">
                 <label for="pmax">-</label>
                 <input type="number" name="pmax">
             </form>';
@@ -30,6 +30,8 @@ if (isset($_POST['submit'])) {
     //get data
     $option = mysqli_real_escape_string($connection, $_POST['search-option']);
     $searchWord = mysqli_real_escape_string($connection, $_POST['search']);
+    $priceMin = mysqli_real_escape_string($connection, $_POST['pmin']);
+    $priceMax = mysqli_real_escape_string($connection, $_POST['pmax']);
 
     //query db based on search option
     switch ($option){
@@ -54,8 +56,13 @@ if (isset($_POST['submit'])) {
 
     }
 
+    if(!empty($priceMin)){
+        $query .= " AND books.price > " . $priceMin;
+    }
 
-
+    if(!empty($priceMax)){
+        $query .= " AND books.price < " . $priceMax;
+    }
 }
 
 //get data

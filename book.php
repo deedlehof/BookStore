@@ -41,8 +41,6 @@ if(isset($_GET['bid'])){
 //if the user is logged in then add comment
 if (isset($_POST['review']) && isset($_SESSION['email'])){
 
-    echo 'hello world';
-
     $subRating = (int)mysqli_real_escape_string($connection, $_POST['rating']);
     $subComment = mysqli_real_escape_string($connection, $_POST['comments']);
 
@@ -106,7 +104,7 @@ if (isset($_POST['order']) && isset($_SESSION['email'])){
     <div class="comment-wrapper">
         <h3>Reviews</h3>
         <form class="review-form" action="book.php?bid=<?php echo $id?>" method="post">
-            <input type="number" name="rating">
+            <input type="number" min="1" max="5" name="rating">
             <label for="rating">/5</label> <br>
             <textarea name="comments" placeholder="Comments"></textarea> <br>
             <button type="submit" name="review">Submit</button>
@@ -131,7 +129,7 @@ if (isset($_POST['order']) && isset($_SESSION['email'])){
                                 '<li>
                                     <p>' . $userName['fname'] . ' ' . $userName['lname'] .'</p>
                                     <p>' . $review['rating'] . '/5</p>
-                                    <p>' . $review['comments'] . '</p>
+                                    <p>' . $review['comments'] . '</p> <br>
                                 </li>';
                         }
                     }
