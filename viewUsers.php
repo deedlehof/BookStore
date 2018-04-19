@@ -5,7 +5,7 @@ include_once 'header.php';
 <table width="1250" align="center" bgcolor="red">
 
 	<tr align="center">
-		<td colspan="5"><h2>View and Edit Books</h2></td>
+		<td colspan="5"><h2>View and Edit Users</h2></td>
 	</tr>
 	
 	<tr align="center" bgcolor="white">
