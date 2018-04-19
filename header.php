@@ -23,8 +23,8 @@ session_start();
                             	<li><a href="viewUsers.php">Edit Users</a></li>
                                 <li><a href="addBook.php">Add Books</a></li>
                                 <li><a href="view_books.php">Edit Books</a></li>
-				                <li><a href="addKey.php">Add Keywords</a></li>
-				                <li><a href="view_key.php">Edit Keywords</a></li>
+				<li><a href="addKey.php">Add Keywords</a></li>
+				<li><a href="view_key.php">Edit Keywords</a></li>
                             ';
                         }
                         echo '  <li><a href="userPage.php">User</a> </li>
