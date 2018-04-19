@@ -70,7 +70,9 @@ include("includes/dbh-inc.php");
 </body>
 </html>
 <?php
+
 	if(isset($_POST['insert_post'])){
+
 		$book_title = $_POST['name'];
 		$book_isbn = $_POST['ISBM'];
 		$book_author = $_POST['author'];
@@ -82,7 +84,7 @@ include("includes/dbh-inc.php");
 		$book_price= $_POST['price'];
 		$book_quantity = $_POST['quantity'];
 
-		$insert_book = "insert into books(name,ISBM,author,subject,summary,language,publisher,published,price,quantity) values ('$book_title','$book_isbn','$book_author','$book_desc','$book_sum','$book_lang','$book_publisher','$book_date','$book_price','$book_quantity')";
+		$insert_book = "insert into books(name,ISBN,author,subject,summary,language,publisher,published,price,quantity) values ('$book_title','$book_isbn','$book_author','$book_desc','$book_sum','$book_lang','$book_publisher','$book_date','$book_price','$book_quantity')";
 		
 		$insert_books = mysqli_query($connection, $insert_book);
 		

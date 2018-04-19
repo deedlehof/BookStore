@@ -103,11 +103,12 @@ if(isset($_GET['edit_books'])){
 		$book_price= $_POST['price'];
 		$book_quantity = $_POST['quantity'];
 
-		$update_book = "update books set name='$book_title', ISBM='$book_isbn', author='$book_author',subject='$book_desc', summary='$book_sum',language='$book_lang',publisher='$book_publisher',published='$book_date',price='$book_price',quantity='$book_quantity' where id ='$update_id'";
+		$update_book = "update books set name='$book_title', ISBN='$book_isbn', author='$book_author',subject='$book_desc', summary='$book_sum',language='$book_lang',publisher='$book_publisher',published='$book_date',price='$book_price',quantity='$book_quantity' where id ='$update_id'";
 		
 		$run_books = mysqli_query($connection, $update_book);
-		
-		
+
+        header("Location: view_books.php");
+        exit();
 
 	}
 

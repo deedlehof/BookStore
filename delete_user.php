@@ -2,7 +2,7 @@
     include_once 'includes/dbh-inc.php';
 	
 	if(isset($_GET['delete_user'])){
-	
+
         $delete_id = (int)$_GET['delete_user'];
 
         echo $delete_id;

@@ -109,7 +109,7 @@ if (isset($_POST['order']) && isset($_SESSION['email'])) {
         <form class="signup-form" action="cart.php" method="post">
             <input type="text" name="shipaddr" placeholder="Shipping Address*">
             <input type="text" name="billaddr" placeholder="Billing Address*">
-            <input type="number" name="cardNum" minlength="10" maxlength="10" placeholder="Card Number*">
+            <input type="number" name="cardNum" minlength="16" maxlength="16" placeholder="Card Number*">
             <button type="submit" name="order">Order</button>
         </form>
     </div>
