@@ -17,7 +17,7 @@ include_once 'header.php';
 		<th>Delete</th>
 	</tr>
 	<?php
-	include("includes/dbh-inc.php");
+    include_once 'includes/dbh-inc.php';
 	?>
 	<?php
 		$get_book = "select * from books";

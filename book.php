@@ -50,8 +50,22 @@ if (isset($_POST['review']) && isset($_SESSION['email'])){
         exit();
     }
 
+    //get the user
+    $email = $_SESSION['email'];
+    $sql = "SELECT * FROM user WHERE email='$email'";
+    $result = mysqli_query($connection, $sql);
+    $resultCheck = mysqli_num_rows($result);
+
+    //if no results then exit
+    if($resultCheck < 1){
+        header("Location: book.php?user=error");
+        exit();
+    }
+    $user = mysqli_fetch_assoc($result);
+    $userID = $user['id'];
+
     $insertComment = "INSERT INTO user_reviews (uid, bid, rating, comments)
-                      VALUES ('19', '$id', '$subRating', '$subComment')";
+                      VALUES ('$userID', '$id', '$subRating', '$subComment')";
 
     mysqli_query($connection, $insertComment);
 

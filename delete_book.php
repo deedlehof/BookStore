@@ -1,5 +1,5 @@
 <?php
-	include("includes/dbh-inc.php");
+    include_once 'includes/dbh-inc.php';
 	
 	if(isset($_GET['delete_book'])){
 	

@@ -2,7 +2,7 @@
 
 include_once 'header.php';
 
-include("includes/dbh-inc.php");
+include_once 'includes/dbh-inc.php';
 
 if(isset($_GET['edit_books'])){
 	$get_id = $_GET['edit_books'];

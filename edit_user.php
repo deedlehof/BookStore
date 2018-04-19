@@ -2,7 +2,7 @@
 
 include_once 'header.php';
 
-include("includes/dbh-inc.php");
+include_once 'includes/dbh-inc.php';
 
 if(isset($_GET['edit_user'])){
 	$get_id = $_GET['edit_user'];
@@ -95,8 +95,9 @@ if(isset($_GET['edit_user'])){
 		$update_user = "update user set fname='$user_first', mname='$user_middle', lname='$user_last',email='$user_email', password='$user_pass',age='$user_age',gender='$user_gender',type='$user_type' where id ='$update_id'";
 		
 		$run_users = mysqli_query($connection, $update_user);
-		
-		
+
+        header("Location: viewUsers.php");
+        exit();
 
 	}
 

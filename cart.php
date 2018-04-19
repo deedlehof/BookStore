@@ -75,6 +75,8 @@ if (isset($_POST['order']) && isset($_SESSION['email'])) {
     <div class="cart-wrapper">
         <h1>Cart</h1>
 
+        <hr>
+
         <ul>
             <?php
                 if(isset($_SESSION['order']) && count($_SESSION['order']) > 0) {
@@ -97,6 +99,8 @@ if (isset($_POST['order']) && isset($_SESSION['email'])) {
             ?>
 
         </ul>
+
+        <hr>
 
         <h3><?php echo 'TOTAL: $' . $totalCost; ?></h3>
 

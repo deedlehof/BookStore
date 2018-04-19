@@ -11,14 +11,15 @@ include_once 'header.php';
 		<td colspan="6"><h2>Order History</h2></tr>
 	</tr>
 
-	<tr align="center">
-		<th>Book Title</th>
-		<th>Quantity</th>
-		<th>Cost</th>
-		<th>Date Ordered</th>
-		<th>Status</th>
-	</tr>
-
+    <table style="width:100%">
+        <tr align="left">
+            <th>Book Title</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>Date Ordered</th>
+            <th>Status</th>
+        </tr>
+    </table>
             
 </section>
 <?php
@@ -44,7 +45,7 @@ if(isset($_SESSION['email'])) {
     $run_order = mysqli_query($connection, $get_order);
     $check_order = mysqli_num_rows($run_order);
 
-    echo '<tr align="center">';
+    echo '<table style="width:100%">';
     if($check_order > 0){
 
         //loop through each order
@@ -63,17 +64,18 @@ if(isset($_SESSION['email'])) {
                 $book = mysqli_fetch_assoc($run_book);
 
                 echo '
-                
-                    <td>' . $book['name'] . '</td>
-                    <td>' . $order['quantity'] . '</td>
-                    <td>$' . $order['cost'] . '</td>
-                    <td>' . $order['ordered'] . '</td>
-                    <td>' . $order['status'] . '</td>
+                    <tr align="left">
+                        <td>' . $book['name'] . '</td>
+                        <td>' . $order['quantity'] . '</td>
+                        <td>$' . $order['cost'] . '</td>
+                        <td>' . $order['ordered'] . '</td>
+                        <td>' . $order['status'] . '</td>
+                    </tr>
                 ';
             }
         }
     }
-    echo '</tr>';
+    echo '</table>';
 
 } else {
     header("Location: index.php?uid=error");

@@ -30,50 +30,6 @@ footer,header,hgroup,menu,nav,section {
     display:block;
 }
 
-body {background:lightgreen;}
-
-
-.main_wrapper{
-width:1000px;
-height:auto;
-margin:auto;
-
-}
-
-.header_wrapper{
-width:1000px;
-height:100px;
-margin:auto;
-}
-
-.menubar{
-width:1000px;
-height:50px;
-color:white;
-}
-
-#menu{
-padding:0;
-margin:0;
-line-height:40px;
-}
-
-#menu li{
-list-style:none;
-display:inline;
-float:left;
-}
-
-#menu a {
-text-decoration:none;
-color:white;
-padding:8px;
-margin:10px;
-font-size:24px;
-font-family:Ariel;}
-
-#menu a:hover{color:orange; font-weight:bolder; text-decoration:underline;}
-
 #form{float:right; padding-right:8px; line-height:40px;}
 .content_wrapper{
 width:1000px;

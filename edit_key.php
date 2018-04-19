@@ -1,6 +1,6 @@
 <?php
 include_once 'header.php';
-include("includes/dbh-inc.php");
+include_once 'includes/dbh-inc.php';
 if(isset($_GET['edit_key'])){
 	$get_id = $_GET['edit_key'];
 	$get_key = "select * from keywords where bookid = '$get_id'";
