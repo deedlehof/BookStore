@@ -1,5 +1,7 @@
 <!DOCTYPE>
 <?php
+include_once 'header.php';
+
 include("includes/dbh-inc.php");
 ?>
 <html>
@@ -87,4 +89,8 @@ include("includes/dbh-inc.php");
 
 	}
 
+?>
+
+<?php
+include_once 'footer.php';
 ?>

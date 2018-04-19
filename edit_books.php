@@ -1,5 +1,7 @@
-<!DOCTYPE>
 <?php
+
+include_once 'header.php';
+
 include("includes/dbh-inc.php");
 
 if(isset($_GET['edit_books'])){
@@ -109,4 +111,8 @@ if(isset($_GET['edit_books'])){
 
 	}
 
+?>
+
+<?php
+include_once 'footer.php';
 ?>

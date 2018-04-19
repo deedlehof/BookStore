@@ -19,7 +19,11 @@ session_start();
                     //if user is logged in then show extra tabs
                     if(isset($_SESSION['email'])){
                         if(strcmp($_SESSION['type'], "Manager") == 0){
-                            echo '<li><a href="index.php">Manage</a> </li>';
+                            echo '
+                            	<li><a href="viewUsers.php">Edit Users</a></li>
+                                <li><a href="addBook.php">Add Books</a></li>
+                                <li><a href="view_books.php">Edit Books</a></li>
+                            ';
                         }
                         echo '  <li><a href="userPage.php">User</a> </li>
                                 <li><a href="cart.php">Cart</a> </li>';

@@ -106,10 +106,13 @@ if (isset($_POST['order']) && isset($_SESSION['email'])){
         <form class="review-form" action="book.php?bid=<?php echo $id?>" method="post">
             <input type="number" min="1" max="5" name="rating">
             <label for="rating">/5</label> <br>
-            <textarea name="comments" placeholder="Comments"></textarea> <br>
+            <textarea name="comments" placeholder="Comments" maxlength="256" rows="4" cols="50"></textarea> <br>
             <button type="submit" name="review">Submit</button>
         </form>
     </div>
+
+    <hr>
+
     <div class="reviews-wrapper">
         <ul>
             <?php

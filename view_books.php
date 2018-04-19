@@ -1,3 +1,7 @@
+<?php
+include_once 'header.php';
+?>
+
 <table width="1250" align="center" bgcolor="orange">
 
 	<tr align="center">
@@ -31,7 +35,7 @@
 			<td><?php echo $book_title;?></td>
 			<td><?php echo $book_author;?></td>
 			<td><?php echo $book_price;?></td>
-			<td><a href="adminindex.php?edit_books=<?php echo $book_id; ?>">Edit</a></td>
+			<td><a href="edit_books.php?edit_books=<?php echo $book_id; ?>">Edit</a></td>
 			<td><a href="delete_book.php?delete_book=<?php echo $book_id;?>">Delete</a></td>
 		</tr>
 		<?php } ?>
@@ -39,3 +43,7 @@
 	
 	
 </table>
+
+<?php
+include_once 'footer.php';
+?>
